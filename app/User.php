@@ -8,6 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+    public function travels()
+    {
+        return $this->hasMany('App\Models\Travel\Travel', 'id', 'user_id');
+    }
+
     use Notifiable;
 
     /**
@@ -16,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'mobile_number','plate_no', 'point', 'email', 'password',  'admin', 'approved_at',
+        'name', 'mobile', 'email', 'password', 'country',
     ];
 
     /**
