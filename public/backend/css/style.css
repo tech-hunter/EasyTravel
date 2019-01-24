@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a.btn-light{
+    margin-top: -4px;
+    min-width: 30px;
+    padding: 5px 6px;
+    border-color: #b7b7b7;
+    border-radius: 0px;
+}
+a.btn-light i{
+    color: #7d7d7d;
+}

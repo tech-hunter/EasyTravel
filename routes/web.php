@@ -56,8 +56,9 @@ Route::group([
 });
 
 
+
 Route::group([
-    'middleware' => 'guest'
+    // 'middleware' => 'guest'
 ], function() {
 
     include_once 'frontend/home.php';

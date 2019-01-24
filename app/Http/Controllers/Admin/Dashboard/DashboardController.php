@@ -19,7 +19,7 @@ class DashboardController extends Controller
     public function index()
     {
         //return a view and pass in the above variable
-        return view('admin.backend.dashboard.index');
+        return view('admin.dashboard.index');
     }
     /**
      * Show the form for creating a new resource.
