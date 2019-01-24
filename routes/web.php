@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -45,5 +45,26 @@ Route::group([
     
 });
 
+
+Route::group([
+    'middleware' => 'auth'
+], function() {
+
+    include_once 'frontend/offers/tour.php';
+    include_once 'frontend/offers/treatment.php';
+    
+});
+
+
+Route::group([
+    'middleware' => 'guest'
+], function() {
+
+    include_once 'frontend/home.php';
+    include_once 'frontend/about.php';
+    include_once 'frontend/news.php';
+    include_once 'frontend/contact.php';
+
+});
 
 
