@@ -17,6 +17,13 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-5 login-card">
+
+                <div class="login-logo text-center">
+                    <div class="img-container">
+                        <img src="{{ asset('backend/images/logo.png') }}" alt="">
+                    </div>
+                </div>
+
                 <form method="POST" action="{{ route('admin.login') }}">
                 @csrf
                     <div class="card p-4">
@@ -33,7 +40,6 @@
                                     </div>
                                     <input type="email" name="email" class="form-control">
                                 </div>
-                                {{-- <input type="email" name="email" class="form-control"> --}}
                             </div>
 
                             <div class="form-group">
@@ -44,7 +50,6 @@
                                     </div>
                                     <input type="password" name="password" class="form-control">
                                 </div>
-                                {{-- <input type="password" name="password" class="form-control"> --}}
                             </div>
 
                             <div class="custom-control custom-checkbox mt-4">
@@ -55,7 +60,7 @@
 
                         <div class="card-footer">
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-6 offset-3">
                                     <button type="submit" class="btn btn-default px-5 btn-block hvr-outline-out">Login</button>
                                 </div>
                             </div>
@@ -66,6 +71,7 @@
         </div>
     </div>
 </div>
+
 <script src="{{asset('backend/js/vendor/jquery/jquery.min.js')}}"></script>
 <script src="{{asset('backend/js/vendor/popper.js/popper.min.js')}}"></script>
 <script src="{{asset('backend/js/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
