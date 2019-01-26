@@ -23,5 +23,5 @@ Route::group([
 
     Route::put('/update/{id}', ['uses' => 'DashboardController@update', 'as' => 'admin.dashboard.update']);
 
-    Route::post('/destroy/{id}', ['uses' => 'DashboardController@destroy', 'as' => 'admin.dashboard.destroy']);
+    Route::get('/destroy/{id}', ['uses' => 'DashboardController@destroy', 'as' => 'admin.dashboard.destroy']);
 });

@@ -5,8 +5,16 @@ namespace App\Http\Controllers\Admin\Package;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\Hotel;
+
 class HotelController extends Controller
 {
+    private $hotel;
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->hotel = new Hotel();
+    }
     /**
      * Display a listing of the resource.
      *

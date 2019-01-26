@@ -42,6 +42,13 @@ Route::group([
 ], function() {
 
     include_once 'admin/dashboard.php';
+    include_once 'admin/tour.php';
+    include_once 'admin/treatment.php';
+    include_once 'admin/air.php';
+    include_once 'admin/hotel.php';
+    include_once 'admin/train.php';
+    include_once 'admin/state.php';
+
     
 });
 

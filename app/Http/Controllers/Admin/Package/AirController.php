@@ -5,8 +5,17 @@ namespace App\Http\Controllers\Admin\Package;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\Air;
+use App\Models\State;
+
 class AirController extends Controller
 {
+    private $air;
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+        $this->air = new Air();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,8 @@ class AirController extends Controller
      */
     public function index()
     {
-        return view('admin.packages.airs.index');
+        $airs = $this->air->all();
+        return view('admin.packages.airs.index')->withAirs($airs);
     }
 
     /**
@@ -24,7 +34,7 @@ class AirController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.packages.airs.create');
     }
 
     /**
@@ -35,7 +45,17 @@ class AirController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,array(
+            'cost' => 'required|inetger',
+            ));
+        
+        $air = new Air();
+        $air->from = $request->from;
+        $air->to = $request->to;
+        $air->tclass_id = $request->tclass_id;
+        $air->save();
+
+        return redirect()->route('admin.air.index');
     }
 
     /**
@@ -57,7 +77,9 @@ class AirController extends Controller
      */
     public function edit($id)
     {
-        //
+        $air = $this->air->find($id);
+
+        return view('admin.air.edit')->withAir($air);
     }
 
     /**
@@ -69,7 +91,18 @@ class AirController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,array(
+            'state' => 'required|string',
+            'cost' => 'required|integer',
+            ));
+        
+        $air = $this->air->find($id);
+        $air->from = $request->from;
+        $air->to = $request->to;
+        $air->tclass_id = $request->tclass_id;
+        $air->save();
+
+        return redirect()->route('admin.air.index');
     }
 
     /**
@@ -80,6 +113,9 @@ class AirController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $air = $this->air->find($id);
+        $air->delete();
+
+        return redirect()->route('admin.air.index');
     }
 }
