@@ -50,7 +50,7 @@ class TreatmentController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.offers.treatment.show');
     }
 
     /**

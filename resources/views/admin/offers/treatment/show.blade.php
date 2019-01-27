@@ -33,7 +33,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header bg-light">
-                    <strong>Tour Package Details</strong>
+                    <h3><strong>Treatment Package Details</strong></h3>
     
                     <div class="card-actions">
                         {{-- <a href="#" class="btn">
