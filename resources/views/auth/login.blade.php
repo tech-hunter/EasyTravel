@@ -26,16 +26,28 @@
                         <div class="card-body py-5">
                             <div class="form-group">
                                 <label class="form-control-label">Email</label>
-                                <input type="email" name="email" class="form-control">
+                                <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}">
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback alert-danger" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                             </div>
 
                             <div class="form-group">
                                 <label class="form-control-label">Password</label>
-                                <input type="password" name="password" class="form-control">
+                                <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback alert-danger" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                             </div>
 
                             <div class="custom-control custom-checkbox mt-4">
-                                <input type="checkbox" class="custom-control-input" id="login">
+                                <input type="checkbox" class="custom-control-input" id="login" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="custom-control-label" for="login">Remember Login</label>
                             </div>
                         </div>
