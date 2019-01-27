@@ -27,4 +27,9 @@ class State extends Model
     {
         return $this->hasMany('App\Models\Train\Train', 'id', 'from');
     }
+
+    public function hospitals()
+    {
+        return $this->hasMany('App\Models\Hospital\Hospital', 'id', 'state_id');
+    }
 }

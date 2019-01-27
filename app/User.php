@@ -14,6 +14,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Travel\Travel', 'id', 'user_id');
     }
 
+    public function hospitals()
+    {
+        return $this->hasMany('App\Models\Hospital\Hospital', 'id', 'user_id');
+    }
+
     use Notifiable;
 
     /**

@@ -73,6 +73,7 @@ Route::group([
     include_once 'frontend/about.php';
     include_once 'frontend/news.php';
     include_once 'frontend/contact.php';
+    include_once 'frontend/offers.php';
 
 });
 

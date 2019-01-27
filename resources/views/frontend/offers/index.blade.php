@@ -35,17 +35,17 @@
                 </ul><!--/#portfolio-filter-->
                 
                 <div class="portfolio-items">
-                    <div class="col-sm-6 portfolio-item itour itreatment">
+                    <div class="col-sm-6 portfolio-item itreatment">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-single">
                                 <div class="portfolio-thumb">
-                                    <a href="#">
+                                <a href="#">
                                         <img src="{{ asset('frontend/images/offer/air.jpg') }}" class="img-responsive" alt="">
                                     </a>
                                 </div>
                                 <div class="portfolio-view">
                                     <ul class="nav nav-pills">
-                                        <li><a href="portfolio-details.html"><i class="fa fa-link"></i></a></li>
+                                        <li><a href="{{Route('treatment')}}"><i class="fa fa-link"></i></a></li>
                                         <li><a href="images/portfolio/18.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
                                     </ul>
                                 </div>
@@ -55,7 +55,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 portfolio-item itreatment">
+                    <div class="col-sm-6 portfolio-item itour">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-single">
                                 <div class="portfolio-thumb">
@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="portfolio-view">
                                     <ul class="nav nav-pills">
-                                        <li><a href="portfolio-details.html"><i class="fa fa-link"></i></a></li>
+                                        <li><a href="{{Route('tour')}}"><i class="fa fa-link"></i></a></li>
                                         <li><a href="images/portfolio/18.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
                                     </ul>
                                 </div>
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="portfolio-view">
                                     <ul class="nav nav-pills">
-                                        <li><a href="portfolio-details.html"><i class="fa fa-link"></i></a></li>
+                                        <li><a href="{{Route('treatment')}}"><i class="fa fa-link"></i></a></li>
                                         <li><a href="images/portfolio/19.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
                                     </ul>
                                 </div>
@@ -91,7 +91,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 portfolio-item itour itreatment">
+                    <div class="col-sm-6 portfolio-item itour">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-single">
                                 <div class="portfolio-thumb">
@@ -99,7 +99,7 @@
                                 </div>
                                 <div class="portfolio-view">
                                     <ul class="nav nav-pills">
-                                        <li><a href="portfolio-details.html"><i class="fa fa-link"></i></a></li>
+                                        <li><a href="{{Route('tour')}}"><i class="fa fa-link"></i></a></li>
                                         <li><a href="images/portfolio/20.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
                                     </ul>
                                 </div>
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="portfolio-view">
                                     <ul class="nav nav-pills">
-                                        <li><a href="portfolio-details.html"><i class="fa fa-link"></i></a></li>
+                                        <li><a href="{{Route('treatment')}}"><i class="fa fa-link"></i></a></li>
                                         <li><a href="images/portfolio/21.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
                                     </ul>
                                 </div>
@@ -127,15 +127,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 portfolio-item itour itreatment">
+                    <div class="col-sm-6 portfolio-item itreatment">
                         <div class="portfolio-wrapper">
                             <div class="portfolio-single">
                                 <div class="portfolio-thumb">
-                                    <a href="#"><img src="{{ asset('frontend/images/offer/hote2.jpg') }}" class="img-responsive" alt=""></a>
+                                    <a ><img src="{{ asset('frontend/images/offer/hote2.jpg') }}" class="img-responsive" alt=""></a>
                                 </div>
                                 <div class="portfolio-view">
                                     <ul class="nav nav-pills">
-                                        <li><a href="portfolio-details.html"><i class="fa fa-link"></i></a></li>
+                                        <li><a href="{{Route('treatment')}}"><i class="fa fa-link"></i></a></li>
                                         <li><a href="images/portfolio/22.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
                                     </ul>
                                 </div>
@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="portfolio-view">
                                     <ul class="nav nav-pills">
-                                        <li><a href="portfolio-details.html"><i class="fa fa-link"></i></a></li>
+                                        <li><a href="{{Route('tour')}}"><i class="fa fa-link"></i></a></li>
                                         <li><a href="images/portfolio/23.jpg" data-lightbox="example-set"><i class="fa fa-eye"></i></a></li>
                                     </ul>
                                 </div>

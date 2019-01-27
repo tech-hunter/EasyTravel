@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend\Offer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class treatmentController extends Controller
+class TreatmentController extends Controller
 {
     /**
      * Display a listing of the resource.
