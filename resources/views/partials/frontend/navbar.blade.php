@@ -4,11 +4,12 @@
             <div class="col-sm-12 overflow">
                <div class="social-icons pull-right">
                     <ul class="nav nav-pills">
-                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                        <li><a href=""><i class="fab fa-google-plus"></i></a></li>
+                        <li><a href=""><i class="fab fa-dribbble"></i></a></li>
+                        <li><a href=""><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href=""><i class="fas fa-calendar-alt"></i>  <span id="cu_date"> </span></a></li>
                     </ul>
                 </div> 
             </div>
@@ -41,6 +42,16 @@
                     </li>
                     <li><a href="{{ Route('news') }}">News</a></li>                    
                     <li><a href="{{ Route('contact') }}">Contact</a></li>                    
+                    <li class="dropdown"><a href="">My Name<i class="fa fa-angle-down"></i></a>
+                        <ul role="menu" class="sub-menu">
+                            <li><a href="">My Name</a></li>
+                            <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
+                            
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </ul>
+                    </li>                    
                 </ul>
             </div>
             {{-- <div class="search">

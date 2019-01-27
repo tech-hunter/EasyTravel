@@ -1,11 +1,3 @@
-/*
-  Theme Name: Triangle
-  Theme Uri: http://www.themeum.com
-  Author: Themeum
-  Author Uri: http://www.themeum.com
-  Description: Creative Site Template
-  Version: 1.1
-  */
 
   @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
   @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
@@ -13,7 +5,8 @@
 
   body {
     background: #fff;
-    font-family: 'Lato', sans-serif;
+    ~font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 14px;
     line-height: 22px;
@@ -84,7 +77,7 @@
     font-weight: 300;
     padding: 10px 25px;
   }
-
+  
   #action .col-sm-5{
     position: absolute;
 
@@ -251,6 +244,10 @@
   margin: 0;
 }
 
+#header .navbar-brand img{
+ width: 150px;
+}
+
 #header .navbar-nav.navbar-right >li:last-child{
   margin-right: 20px;
 }
@@ -381,6 +378,10 @@ ul.sub-menu {
   margin-bottom: 60px;
 }
 
+#footer .testimonial .media img{
+  width: 60px;
+}
+
 #message {
   height: 110px;
   resize: none;
@@ -400,20 +401,20 @@ ul.sub-menu {
   color: #d99c4e;
 }
 
-.testimonial .media{
+.clients .media{
   margin-top: 0;
   margin-bottom: 25px;
 }
 
-.testimonial .media>.pull-left{
+.clients .media>.pull-left{
   margin-right: 25px;
 }
 
-.testimonial .media>.pull-left img{
+.clients .media>.pull-left img{
   margin-top: 6px;
 }
 
-.testimonial .media .media-body blockquote{
+.clients .media .media-body blockquote{
   padding-left: 25px;
   padding-right: 30px;
   position: relative;
@@ -421,7 +422,7 @@ ul.sub-menu {
   margin-bottom: 0;
 }
 
-.testimonial .media .media-body blockquote:before{
+.clients .media .media-body blockquote:before{
   position: absolute;
   left: 5px;
   top: 8px;
@@ -435,7 +436,7 @@ ul.sub-menu {
   line-height: 0;
 }
 
-.testimonial .media .media-body blockquote:after{
+.clients .media .media-body blockquote:after{
   position: absolute;
   right: 30px;
   bottom: 14px;
@@ -468,29 +469,21 @@ ul.sub-menu {
   box-shadow: none;
 }
 
-.btn-submit {
-  width: 100%;
-  background-color: #d89b4e;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 300;
-  letter-spacing: 5px;
-  text-transform: uppercase;
-  border-radius: 3px;
-  margin-top: 5px;
-  border-bottom: 3px solid #a56617;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  padding: 10px;
+ .btn-submit {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
 }
-
-.btn-submit:hover, 
-.btn-submit:focus{
-  color: #fff;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  opacity: .8;
+.btn-submit:hover, .btn-submit:focus,  .btn-submit:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .copyright-text{
@@ -517,6 +510,11 @@ ul.sub-menu {
   left: 0;
   width: 450px;
 }
+
+/*#home-slider .slide-text .upper{
+  text-transform: uppercase;
+  font-size: 50px;
+}*/
 
 .animate-in .slide-text {
   -webkit-animation: fadeInLeftBig 700ms cubic-bezier(0.190,1.000,0.220,1.000) 200ms both;
@@ -742,6 +740,296 @@ ul.sub-menu {
   overflow: hidden;
   margin-bottom: 10px;
 }
+
+#clients .clients-slider h2 {
+  color: #000;
+  font-size: 26px;
+  font-weight: 300;
+  position: relative;
+  margin: 0 0 50px 0;
+  text-transform: uppercase;
+  display: inline-block;
+}
+#clients .clients-slider h2::after {
+  content: "";
+  width: 50%;
+  position: absolute;
+  height: 4px;
+  border-radius: 1px;
+  background: #ff5555;
+  left: 0;
+  bottom: -20px;
+}
+#clients .clients-slider .carousel {
+  margin: 50px auto;
+}
+#clients .clients-slider .carousel .item {
+  color: #999;
+  overflow: hidden;
+    min-height: 120px;
+  font-size: 15px;
+}
+#clients .clients-slider .carousel .media {
+  position: relative;
+  padding: 0 0 0 20px;
+  margin-left: 20px;
+}
+
+#clients .clients-slider .carousel .media .media-body .name{
+  font-size: 15px;
+}
+
+#clients .clients-slider .carousel .media img {
+  width: 75px;
+  height: 75px;
+  display: block;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    border: 2px solid #fff;
+}
+#clients .clients-slider .carousel .clients-details {
+    color: #fff;
+    position: relative;
+    background: #d89b4e;
+    padding: 15px;
+    font-size: 16px;
+    margin: 0 0 20px 20px;
+}
+#clients .clients-slider .carousel .clients-details::before, #clients .clients-slider .carousel .clients-details::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+}
+#clients .clients-slider  .carousel .clients-details::before {
+    width: 20px;
+    height: 20px;
+  background: #d89b4e;
+  box-shadow: inset 12px 0 13px rgba(0,0,0,0.5);
+}
+#clients .clients-slider .carousel .clients-details::after {
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+    border-left-color: #fff;
+}
+#clients .clients-slider .carousel .item .row > div:first-child .clients-details {
+  margin: 0 20px 20px 0;
+}
+#clients .clients-slider .carousel .item .row > div:first-child .media {
+  margin-left: 0;
+}
+ #clients .clients-slider .carousel .clients-details p {
+  text-indent: 40px;
+  line-height: 21px;
+  margin: 0;
+  font-size: 15px;
+}
+/*.clients .clients-slider .carousel .clients-details p::before {
+  content: '\94';
+    color: #fff;
+    font-weight: bold;
+    font-size: 68px;
+    line-height: 70px;
+    position: absolute;
+    left: -25px;
+    top: 0;
+} */
+#clients .clients-slider .carousel .overview {
+  padding: 3px 0 0 15px;
+}
+#clients .clients-slider .carousel .overview .details {
+  padding: 5px 0 8px;
+}
+#clients .clients-slider .carousel .overview b {
+  text-transform: uppercase;
+  color: #ff5555;
+}
+#clients .clients-slider .carousel .carousel-control {
+  width: 30px;
+  height: 30px;
+    background: #000;
+    text-shadow: none;
+  top: -50px;
+}
+#clients .clients-slider .carousel-control i {
+  font-size: 16px;
+}
+#clients .clients-slider .carousel-control.left {
+  left: auto;
+  right: 40px;
+}
+#clients .clients-slider .carousel-control.right {
+  left: auto;
+}
+#clients .clients-slider .carousel-indicators {
+  bottom: -80px;
+}
+#clients .clients-slider .carousel-indicators li, .carousel-indicators li.active {
+  width: 18px;
+    height: 18px;
+  border-radius: 0;
+  margin: 1px 4px;
+}
+#clients .clients-slider .carousel-indicators li {  
+    background: #e2e2e2;
+    border: 4px solid #fff;
+}
+#clients .clients-slider .carousel-indicators li.active {
+  color: #fff;
+    background: #ff5555;    
+    border: 5px double;    
+}
+#clients .clients-slider .star-rating li {
+  padding: 0 2px;
+}
+#clients .clients-slider .star-rating i {
+  font-size: 14px;
+  color: #ffdc12;
+}
+
+/*--------------------------- Contact Us ------------------------------*/
+/*********************************
+12. Contact
+*********************************/
+
+.contact
+{
+  width: 100%;
+  padding-bottom: 105px;
+}
+.contact_background
+{
+  background-image: url("/frontend/images/c-1.png");
+  position: absolute;
+  ~bottom: -34px;
+  left: 0;
+  width: 100%;
+  height: 104%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.contact_title
+{
+  font-size: 30px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.contact_form_container
+{
+  padding-top: 74px;
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-bottom: 88px;
+  background: linear-gradient(to top right, #d89b4e, rgba(0,0,0,0.3));
+}
+.contact_form
+{
+  margin-top: 52px;
+  font-size: 0px;
+}
+.input_field
+{
+  height: 48px;
+  font-size: 12px;
+  font-weight: 400;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #FFFFFF;
+  border-bottom: solid 2px #e1e1e1;
+}
+.contact_form_name
+{
+  width: calc((100% - 30px) / 2);
+  margin-right: 30px;
+}
+.contact_form_email
+{
+  width: calc((100% - 30px) / 2);
+}
+.contact_form_subject
+{
+  width: 100%;
+  margin-top: 11px;
+}
+.contact_form_message
+{
+  height: 126px;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-top: 19px;
+  background: transparent;
+  font-size: 12px;
+  font-weight: 400;
+  color: #FFFFFF;
+  border-bottom: solid 2px #e1e1e1;
+  padding-top: 11px;
+}
+.contact .btn
+{
+  font-size: 13px;
+  font-weight: 700;
+  color: #000;
+  text-transform: uppercase;
+  line-height: 35px;
+  background: #fff;
+  -webkit-transform: translateY(15px);
+  -moz-transform: translateY(15px);
+  -ms-transform: translateY(15px);
+  -o-transform: translateY(15px);
+  transform: translateY(15px);
+  border: none;
+  outline: none;
+  margin-top: 37px;
+  cursor: pointer;
+}
+
+.form_submit_button:hover
+{
+  opacity: 0.8;
+}
+.input_field::-webkit-input-placeholder,
+.text_field::-webkit-input-placeholder
+{
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #FFFFFF !important;
+}
+.input_field:-moz-placeholder,
+.text_field:-moz-placeholder
+{
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #FFFFFF !important;
+}
+.input_field::-moz-placeholder,
+.text_field::-moz-placeholder
+{
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #FFFFFF !important;
+} 
+.input_field:-ms-input-placeholder,
+.text_field:-ms-input-placeholder
+{ 
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #FFFFFF !important;
+}
+.input_field::input-placeholder,
+.text_field::input-placeholder
+{
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  color: #FFFFFF !important;
+}
+/*--------------------------- Contact Us ------------------------------*/
 
 
 
@@ -2562,3 +2850,66 @@ span.stButton_gradient,
   border-radius: 100%;
   margin: 10px 0;
 }
+
+/*------------------------ Tour Package Page Start -----------------------------------*/
+.tour-choice .btn-submit{
+  width: auto;
+}
+/* Grow Shadow */
+.tour-choice .btn-submit {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.tour-choice .btn-submit:hover, .tour-choice .btn-submit:focus, .tour-choice .btn-submit:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+/*------------------------ Tour Package Page End -----------------------------------*/
+
+/*------------------------------ Tour Show Details Page Start -----------------------------------*/
+.tourdetails{
+  margin: 30px 0;
+}
+
+.tourdetailsrow{
+  padding: 10px;
+    box-shadow: 5px 6px 40px 6px #888888;
+}
+
+.tourdetails-heading{
+  margin: 50px 0;
+}
+
+.tourdetails-heading .heading h1 {
+    position: relative;
+  margin-top: 0px;
+  
+}
+  
+.tourdetails-heading .heading h1:before {
+    content: "";
+    display: block;
+    border-top: solid 1px black;
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    top: 25px;
+    z-index: 1;
+}
+  
+.tourdetails-heading .heading  h1 span{
+    background: #fff;
+    padding: 0 20px;
+    position: relative;
+    z-index: 5;
+}
+/*------------------------------ Tour SHow Details Page End -----------------------------------*/
+

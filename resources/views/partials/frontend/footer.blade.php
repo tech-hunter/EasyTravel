@@ -9,7 +9,7 @@
                     <h2>Testimonial</h2>
                     <div class="media">
                         <div class="pull-left">
-                            <a href="#"><img src="{{ asset('frontend/images/home/profile1.png') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('frontend/images/avatars/t-5.png') }}" alt=""></a>
                         </div>
                         <div class="media-body">
                             <blockquote>Nisi commodo bresaola, leberkas venison eiusmod bacon occaecat labore tail.</blockquote>
@@ -18,7 +18,7 @@
                      </div>
                     <div class="media">
                         <div class="pull-left">
-                            <a href="#"><img src="{{ asset('frontend/images/home/profile2.png') }}" alt=""></a>
+                            <a href="#"><img src="{{ asset('frontend/images/avatars/t-4.png') }}" alt=""></a>
                         </div>
                         <div class="media-body">
                             <blockquote>Capicola nisi flank sed minim sunt aliqua rump pancetta leberkas venison eiusmod.</blockquote>
@@ -47,17 +47,11 @@
             </div>
             <div class="col-md-4 col-sm-12">
                 <div class="contact-form bottom">
-                    <h2>Send a message</h2>
+                    <h2>Newsletter</h2>
                     <form id="main-contact-form" name="contact-form" method="post" action="sendemail.php">
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" required="required" placeholder="Name">
-                        </div>
-                        <div class="form-group">
                             <input type="email" name="email" class="form-control" required="required" placeholder="Email Id">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your text here"></textarea>
-                        </div>                        
+                        </div>                      
                         <div class="form-group">
                             <input type="submit" name="submit" class="btn btn-submit" value="Submit">
                         </div>
