@@ -11,7 +11,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <form action="" method="POST">
+            <form action="{{ route('admin.hotelcost.store') }}" method="POST">
             @csrf
                 <div class="card">
                     <div class="card-header bg-light">
@@ -27,35 +27,28 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="from">Journey From</label>
-                                    <select id="from" class="form-control">
-                                        <option value="Sylhet">Sylhet</option>
-                                        <option value="Dhaka">Dhaka</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
                                     <label for="to">Journey To</label>
-                                    <select id="to" class="form-control">
-                                        <option value="Sylhet">Sylhet</option>
-                                        <option value="Dhaka">Dhaka</option>
+                                    <select id="to" name="hotel_id" class="form-control">
+                                        @foreach($hotels as $hotel)
+                                        <option value="{{ $hotel->id }}">{{ $hotel->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="tclass_id">Ticket Class</label>
-                                    <select id="tclass_id" class="form-control">
-                                        <option value="AC">AC</option>
-                                        <option value="Non-AC">Non-AC</option>
+                                    <select id="tclass_id" name="room_cat_id" class="form-control">
+                                        @foreach($rooms as $room)
+                                        <option value="{{ $room->id }}">{{ $room->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="price" class="form-control-label">Price <sup>( Per Person )</sup></label>
-                                    <input id="price" class="form-control" placeholder="1200">
+                                    <input id="price" name="cost" class="form-control" placeholder="1200">
                                 </div>
                             </div>
                         </div>

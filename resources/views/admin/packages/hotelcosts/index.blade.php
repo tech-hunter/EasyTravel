@@ -52,26 +52,30 @@
                             <thead>
                                 <tr>
                                     <th>Hotel Name</th>
+                                    <th>Hotel State</th>
                                     <th>Room Category</th>
                                     <th>Price</th>
                                     <th class="action">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($costs as $cost)
                                 <tr>
-                                    <td>Rose View Hotel</td>
-                                    <td>AC Room</td>
-                                    <td>12000</td>
+                                    <td>{{ \App\Models\Hotel\Hotel::find($cost->hotel_id)->name }}</td>
+                                    <td>{{ \App\Models\State\State::find($cost->hotel_id)->name }}</td>
+                                    <td>{{ \App\Models\RoomCategory\RoomCategory::find($cost->room_cat_id)->name }}</td>
+                                    <td>{{ $cost->cost }}</td>
                                     <td class="action">
-                                        <a href="#" class="btn">
+                                        <a href="{{ route('admin.hotelcost.edit', ['id' => $cost->id]) }}" class="btn">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
                     
-                                        <a href="#" onclick="return confirm('Delete! Are you sure?')" class="btn">
+                                        <a href="{{ route('admin.hotelcost.destroy', ['id' => $cost->id]) }}" onclick="return confirm('Delete! Are you sure?')" class="btn">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

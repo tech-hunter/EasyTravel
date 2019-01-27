@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Frontend\Offer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\State\State;
+use App\Models\TicketClass\TicketClass;
+use App\Models\RoomCategory\RoomCategory;
+use App\Models\Hotel\Hotel;
+
 class TourController extends Controller
 {
     /**
@@ -14,6 +19,7 @@ class TourController extends Controller
      */
     public function index()
     {
+        $states = State::all();
         return view('frontend.offers.tour.index');
     }
 

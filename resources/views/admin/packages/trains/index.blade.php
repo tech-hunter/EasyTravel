@@ -59,23 +59,25 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($trains as $train)
                                 <tr>
-                                    <td>Sylhet</td>
-                                    <td>Dhaka</td>
-                                    <td>AC</td>
-                                    <td class="priceValue">
-                                        <input id="price" class="form-control" value="1200" disabled>
+                                        <td>{{ \App\Models\State\State::find($train->from)->name }}</td>
+                                        <td>{{ \App\Models\State\State::find($train->to)->name }}</td>
+                                        <td>{{ \App\Models\TicketClass\TicketClass::find($train->tclass_id)->name }}</td>
+                                        <td class="priceValue">
+                                        <input id="price" class="form-control" value="{{ $train->cost }}" disabled>
                                     </td>
                                     <td class="action">
-                                        <a href="#" class="btn">
+                                        <a href="{{ route('admin.train.edit', ['id' => $train->id]) }}" class="btn">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
                     
-                                        <a href="#" onclick="return confirm('Delete! Are you sure?')" class="btn">
+                                        <a href="{{ route('admin.train.destroy', ['id' => $train->id]) }}" onclick="return confirm('Delete! Are you sure?')" class="btn">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

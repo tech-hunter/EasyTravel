@@ -11,50 +11,48 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 offset-2">
+            <form action="{{ route('admin.hotelcost.update',['id' => $cost->id]) }}" method="POST">
+            @csrf
             <div class="card">
                 <div class="card-header">
                     generate hotel costs
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.hotelcost.update', ['id' => $cost->id] ) }}" method="POST">
-                        @csrf
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">hotel name</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="to">Journey To</label>
+                                <select id="to" name="hotel_id" class="form-control">
+                                    @foreach($hotels as $hotel)
+                                    <option value="{{ $hotel->id }}" @if($hotel->id == $cost->hotel_id) selected @endif>{{ $hotel->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <select class="custom-select" name="hotel_id" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                @foreach ($hotels as $hotel)
-                                <option value="{{ $hotel->id }}" @if($hotel->id == $cost->hotel_id) selected @endif>{{ $hotel->name }}</option>                                      
-                                @endforeach
-                            </select>
                         </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">room category</label>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="tclass_id">Ticket Class</label>
+                                <select id="tclass_id" name="room_cat_id" class="form-control">
+                                    @foreach($rooms as $room)
+                                    <option value="{{ $room->id }}" @if($room->id == $cost->room_cat_id) selected @endif>{{ $room->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <select class="custom-select" name="room_cat_id" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                @foreach ($rooms as $room)
-                                <option value="{{ $room->id }}" @if($room->id == $cost->room_cat_id) selected @endif >{{ $room->name }}</option>                                      
-                                @endforeach
-                            </select>
                         </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">costs</label>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="price" class="form-control-label">Price <sup>( Per Person )</sup></label>
+                                <input id="price" name="cost" value="{{ $cost->cost }}" class="form-control" placeholder="1200">
                             </div>
-                            <input type="number" class="form-control" name="cost" value="{{ $cost->cost }}" placeholder="Input Room cost per day">
                         </div>
+                    </div>
+                </div>
 
-
-
-                        <button class="btn btn-info" type="submit">submit</button>
-                    </form>
+                <div class="card-footer bg-light">
+                    <button class="btn btn-outline-dark btn-sm float-right" type="submit">Add To List</button>
                 </div>
             </div>
+        </form>
         </div>
     </div>
 </div>

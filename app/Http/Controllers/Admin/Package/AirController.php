@@ -25,12 +25,8 @@ class AirController extends Controller
     public function index()
     {
         $airs = $this->air->all();
-        $states = State::all();
-        $ticketClasses = TicketClass::all();
         return view('admin.packages.airs.index')
-                ->withAirs($airs)
-                ->withStates($states)
-                ->withTicketClasses($ticketClasses);
+                ->withAirs($airs);
     }
 
     /**
@@ -40,7 +36,11 @@ class AirController extends Controller
      */
     public function create()
     {
-        return view('admin.packages.airs.create');
+        $states = State::all();
+        $ticketClasses = TicketClass::all();
+        return view('admin.packages.airs.create')
+                ->withStates($states)
+                ->withTicketClasses($ticketClasses);
     }
 
     /**

@@ -25,13 +25,9 @@ class HotelCostController extends Controller
     public function index()
     {
         $costs = $this->hotelcost->all();
-        $hotels = Hotel::all();
-        $rooms = RoomCategory::all();
 
         return view('admin.packages.hotelcosts.index')
-                ->withCosts($costs)
-                ->withHotels($hotels)
-                ->withRooms($rooms);
+                ->withCosts($costs);
     }
 
     /**
@@ -41,7 +37,12 @@ class HotelCostController extends Controller
      */
     public function create()
     {
-        //
+        $hotels = Hotel::all();
+        $rooms = RoomCategory::all();
+
+        return view('admin.packages.hotelcosts.create')
+                ->withHotels($hotels)
+                ->withRooms($rooms);
     }
 
     /**
@@ -64,7 +65,7 @@ class HotelCostController extends Controller
 
         $cost->save();
 
-        return redirect()->back();
+        return redirect()->route('admin.hotelcost.index');
     }
 
     /**
@@ -128,7 +129,7 @@ class HotelCostController extends Controller
      */
     public function destroy($id)
     {
-        $cost = $this->cost->find($id);
+        $cost = $this->hotelcost->find($id);
 
         $cost->delete();
 

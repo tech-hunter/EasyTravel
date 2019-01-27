@@ -25,12 +25,8 @@ class TrainController extends Controller
     public function index()
     {
         $trains = $this->train->all();
-        $states = State::all();
-        $ticketClasses = TicketClass::all();
         return view('admin.packages.trains.index')
-                ->withTrains($trains)
-                ->withStates($states)
-                ->withTicketClasses($ticketClasses);
+                ->withTrains($trains);
     }
 
     /**
@@ -40,7 +36,11 @@ class TrainController extends Controller
      */
     public function create()
     {
-        return view('admin.packages.trains.create');
+        $states = State::all();
+        $ticketClasses = TicketClass::all();
+        return view('admin.packages.trains.create')
+                ->withStates($states)
+                ->withTicketClasses($ticketClasses);
     }
 
     /**

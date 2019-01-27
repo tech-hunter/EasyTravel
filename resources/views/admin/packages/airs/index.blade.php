@@ -59,23 +59,25 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($airs as $air)
                                 <tr>
-                                    <td>Sylhet</td>
-                                    <td>Dhaka</td>
-                                    <td>AC</td>
+                                    <td>{{ \App\Models\State\State::find($air->from)->name }}</td>
+                                    <td>{{ \App\Models\State\State::find($air->to)->name }}</td>
+                                    <td>{{ \App\Models\TicketClass\TicketClass::find($air->tclass_id)->name }}</td>
                                     <td class="priceValue">
-                                        <input id="price" class="form-control" value="1200" disabled>
+                                        <input id="price" class="form-control" value="{{ $air->cost }}" disabled>
                                     </td>
                                     <td class="action">
-                                        <a href="#" class="btn">
+                                        <a href="{{ route('admin.air.edit', ['id' => $air->id]) }}" class="btn">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
                     
-                                        <a href="#" onclick="return confirm('Delete! Are you sure?')" class="btn">
+                                        <a href="{{ route('admin.air.destroy', ['id' => $air->id]) }}" onclick="return confirm('Delete! Are you sure?')" class="btn">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
