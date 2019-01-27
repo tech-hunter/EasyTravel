@@ -60,12 +60,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Sylhet</td>
-                                    <td>Dhaka</td>
-                                    <td>AC</td>
-                                    <td class="priceValue">
-                                        <input id="price" class="form-control" value="1200" disabled>
-                                    </td>
+                                    <td>1</td>
+                                    <td>Pias Das</td>
+                                    <td>pias@mail.com</td>
+                                    <td>0156546454</td>
                                     <td class="action">
                                         <a href="#" class="btn">
                                             <i class="fa fa-pencil-alt"></i>
