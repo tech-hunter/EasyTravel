@@ -21,11 +21,6 @@ class CreateHotelsTable extends Migration
             $table->unsignedInteger('state_id');            
             $table->foreign('state_id')->references('id')->on('states')->onDelete('cascade');
 
-            $table->unsignedInteger('room_cat_id');            
-            $table->foreign('room_cat_id')->references('id')->on('room_categories')->onDelete('cascade');
-
-            $table->integer('cost');
-
             $table->timestamps();
             $table->softDeletes();
         });

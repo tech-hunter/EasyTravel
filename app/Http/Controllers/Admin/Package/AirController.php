@@ -5,8 +5,9 @@ namespace App\Http\Controllers\Admin\Package;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\Air;
-use App\Models\State;
+use App\Models\Air\Air;
+use App\Models\State\State;;
+use App\Models\TicketClass\TicketClass;
 
 class AirController extends Controller
 {
@@ -24,7 +25,12 @@ class AirController extends Controller
     public function index()
     {
         $airs = $this->air->all();
-        return view('admin.packages.airs.index')->withAirs($airs);
+        $states = State::all();
+        $ticketClasses = TicketClass::all();
+        return view('admin.packages.airs.index')
+                ->withAirs($airs)
+                ->withStates($states)
+                ->withTicketClasses($ticketClasses);
     }
 
     /**
@@ -46,13 +52,14 @@ class AirController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,array(
-            'cost' => 'required|inetger',
-            ));
+            'cost' => 'required|integer',
+        ));
         
         $air = new Air();
         $air->from = $request->from;
         $air->to = $request->to;
         $air->tclass_id = $request->tclass_id;
+        $air->cost = $request->cost;
         $air->save();
 
         return redirect()->route('admin.air.index');
@@ -78,8 +85,12 @@ class AirController extends Controller
     public function edit($id)
     {
         $air = $this->air->find($id);
-
-        return view('admin.air.edit')->withAir($air);
+        $states = State::all();
+        $ticketClasses = TicketClass::all();
+        return view('admin.packages.airs.edit')
+                ->withAir($air)
+                ->withStates($states)
+                ->withTicketClasses($ticketClasses);
     }
 
     /**
@@ -92,7 +103,6 @@ class AirController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,array(
-            'state' => 'required|string',
             'cost' => 'required|integer',
             ));
         
@@ -100,6 +110,7 @@ class AirController extends Controller
         $air->from = $request->from;
         $air->to = $request->to;
         $air->tclass_id = $request->tclass_id;
+        $air->cost = $request->cost;
         $air->save();
 
         return redirect()->route('admin.air.index');

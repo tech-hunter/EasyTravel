@@ -11,9 +11,9 @@ class RoomCategory extends Model
         return $this->hasMany('App\Models\Travel\Travel', 'id', 'roomtype');
     }
 
-    public function hotels()
+    public function hotelCosts()
     {
-        return $this->belongsToMany('App\Models\Hotel\Hotel', 'id', 'room_cat_id');
+        return $this->belongsToMany('App\Models\HotelCost\HotelCost', 'id', 'room_cat_id');
     }
 
 }

@@ -5,17 +5,17 @@ namespace App\Http\Controllers\Admin\Package;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\Train\Train;
-use App\Models\State\State;
-use App\Models\TicketClass\TicketClass;
+use App\Models\HotelCost\HotelCost;
+use App\Models\Hotel\Hotel;
+use App\Models\RoomCategory\RoomCategory;
 
-class TrainController extends Controller
+class HotelCostController extends Controller
 {
-    private $train;
+    private $hotelcost;
     public function __construct()
     {
         $this->middleware('auth:admin');
-        $this->train = new Train();
+        $this->hotelcost = new HotelCost();
     }
     /**
      * Display a listing of the resource.
@@ -24,13 +24,14 @@ class TrainController extends Controller
      */
     public function index()
     {
-        $trains = $this->train->all();
-        $states = State::all();
-        $ticketClasses = TicketClass::all();
-        return view('admin.packages.trains.index')
-                ->withTrains($trains)
-                ->withStates($states)
-                ->withTicketClasses($ticketClasses);
+        $costs = $this->hotelcost->all();
+        $hotels = Hotel::all();
+        $rooms = RoomCategory::all();
+
+        return view('admin.packages.hotelcosts.index')
+                ->withCosts($costs)
+                ->withHotels($hotels)
+                ->withRooms($rooms);
     }
 
     /**
@@ -40,7 +41,7 @@ class TrainController extends Controller
      */
     public function create()
     {
-        return view('admin.packages.trains.create');
+        //
     }
 
     /**
@@ -52,17 +53,18 @@ class TrainController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,array(
-            'cost' => 'required|integer',
+            'cost' => 'required|string',
             ));
         
-        $train = new train();
-        $train->from = $request->from;
-        $train->to = $request->to;
-        $train->tclass_id = $request->tclass_id;
-        $train->cost = $request->cost;
-        $train->save();
+        $cost = new HotelCost();
 
-        return redirect()->route('admin.train.index');
+        $cost->hotel_id = $request->hotel_id;
+        $cost->room_cat_id = $request->room_cat_id;
+        $cost->cost = $request->cost;
+
+        $cost->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -84,13 +86,14 @@ class TrainController extends Controller
      */
     public function edit($id)
     {
-        $train = $this->train->find($id);
-        $states = State::all();
-        $ticketClasses = TicketClass::all();
-        return view('admin.packages.trains.edit')
-                ->withTrain($train)
-                ->withStates($states)
-                ->withTicketClasses($ticketClasses);
+        $cost = $this->hotelcost->find($id);
+        $hotels = Hotel::all();
+        $rooms = RoomCategory::all();
+
+        return view('admin.packages.hotelcosts.edit')
+                ->withCost($cost)
+                ->withHotels($hotels)
+                ->withRooms($rooms);
     }
 
     /**
@@ -103,17 +106,18 @@ class TrainController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,array(
-            'cost' => 'required|integer',
+            'cost' => 'required|string',
             ));
         
-        $train = $this->train->find($id);
-        $train->from = $request->from;
-        $train->to = $request->to;
-        $train->tclass_id = $request->tclass_id;
-        $train->cost = $request->cost;
-        $train->save();
+        $cost = HotelCost::find($id);
 
-        return redirect()->route('admin.train.index');
+        $cost->hotel_id = $request->hotel_id;
+        $cost->room_cat_id = $request->room_cat_id;
+        $cost->cost = $request->cost;
+
+        $cost->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -124,9 +128,10 @@ class TrainController extends Controller
      */
     public function destroy($id)
     {
-        $train = $this->train->find($id);
-        $train->delete();
+        $cost = $this->cost->find($id);
 
-        return redirect()->route('admin.train.index');
+        $cost->delete();
+
+        return redirect()->back();
     }
 }

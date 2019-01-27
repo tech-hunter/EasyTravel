@@ -21,7 +21,7 @@ Route::group([
 
     Route::get('/edit/{id}', ['uses' => 'StateController@edit', 'as' => 'admin.state.edit']);
 
-    Route::put('/update/{id}', ['uses' => 'StateController@update', 'as' => 'admin.state.update']);
+    Route::post('/update/{id}', ['uses' => 'StateController@update', 'as' => 'admin.state.update']);
 
     Route::get('/destroy/{id}', ['uses' => 'StateController@destroy', 'as' => 'admin.state.destroy']);
 });

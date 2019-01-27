@@ -21,7 +21,7 @@ Route::group([
 
     Route::get('/edit/{id}', ['uses' => 'TrainController@edit', 'as' => 'admin.train.edit']);
 
-    Route::put('/update/{id}', ['uses' => 'TrainController@update', 'as' => 'admin.train.update']);
+    Route::post('/update/{id}', ['uses' => 'TrainController@update', 'as' => 'admin.train.update']);
 
     Route::get('/destroy/{id}', ['uses' => 'TrainController@destroy', 'as' => 'admin.train.destroy']);
 });

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin\State;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\State;
+
+use App\Models\State\State;
 
 class StateController extends Controller
 {
@@ -48,7 +49,7 @@ class StateController extends Controller
             ));
         
         $state = new State();
-        $state->name = $request->name;
+        $state->name = $request->state;
         $state->save();
 
         return redirect()->back();
@@ -78,7 +79,7 @@ class StateController extends Controller
     {
         $state = $this->state->find($id);
 
-        return view('admin.states.edit')->withSate($state);
+        return view('admin.states.edit')->withState($state);
     }
 
     /**
@@ -95,7 +96,7 @@ class StateController extends Controller
             ]);
          
          $state = $this->state->find($id);
-         $state->name = $request->name;
+         $state->name = $request->state;
          $state->save();
 
          return redirect()->route('admin.state.index');

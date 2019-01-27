@@ -4,7 +4,7 @@
             <li class="nav-title">Navigation</li>
 
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.dashboard.index') }}" class="nav-link">
                     <i class="icon icon-speedometer"></i> Dashboard
                 </a>
             </li>
@@ -16,19 +16,19 @@
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.air.index') }}" class="nav-link">
                             <i class="fas fa-plane-departure"></i> Airs
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.train.index') }}" class="nav-link">
                             <i class="fas fa-train"></i> Trains
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.hotelcost.index') }}" class="nav-link">
                             <i class="fas fa-hotel"></i> Hotels
                         </a>
                     </li>
@@ -42,13 +42,13 @@
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.tour.index') }}" class="nav-link">
                             <i class="fas fa-truck-pickup"></i> Tour
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.treatment.index') }}" class="nav-link">
                             <i class="fas fa-hospital"></i> Treatment
                         </a>
                     </li>
@@ -64,8 +64,11 @@
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.state.index') }}" class="nav-link">
                             <i class="fas fa-map"></i> Control States
+                        </a>
+                        <a href="{{ route('admin.hotel.index') }}" class="nav-link">
+                            <i class="fas fa-map"></i> Control Hotel
                         </a>
                     </li>
                 </ul>

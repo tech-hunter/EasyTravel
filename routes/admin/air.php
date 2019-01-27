@@ -21,7 +21,7 @@ Route::group([
 
     Route::get('/edit/{id}', ['uses' => 'AirController@edit', 'as' => 'admin.air.edit']);
 
-    Route::put('/update/{id}', ['uses' => 'AirController@update', 'as' => 'admin.air.update']);
+    Route::post('/update/{id}', ['uses' => 'AirController@update', 'as' => 'admin.air.update']);
 
     Route::get('/destroy/{id}', ['uses' => 'AirController@destroy', 'as' => 'admin.air.destroy']);
 });

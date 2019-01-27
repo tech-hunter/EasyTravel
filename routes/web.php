@@ -48,6 +48,7 @@ Route::group([
     include_once 'admin/hotel.php';
     include_once 'admin/train.php';
     include_once 'admin/state.php';
+    include_once 'admin/hotelcost.php';
 
     
 });

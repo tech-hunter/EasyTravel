@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin\Package;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Models\Hotel;
+use App\Models\Hotel\Hotel;
+use App\Models\State\State;
 
 class HotelController extends Controller
 {
@@ -22,7 +23,11 @@ class HotelController extends Controller
      */
     public function index()
     {
-        return view('admin.packages.hotels.index');
+        $hotels = $this->hotel->all();
+        $states = State::all();
+        return view('admin.packages.hotels.index')
+                ->withHotels($hotels)
+                ->withStates($states);
     }
 
     /**
@@ -32,7 +37,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.packages.hotels.create');
     }
 
     /**
@@ -43,7 +48,16 @@ class HotelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,array(
+            'name' => 'required|string',
+            ));
+        $hotel = new Hotel();
+
+        $hotel->name = $request->name;
+        $hotel->state_id = $request->state_id;
+        $hotel->save();
+
+        return redirect()->route('admin.hotel.index');
     }
 
     /**
@@ -65,7 +79,12 @@ class HotelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $hotel = $this->hotel->find($id);
+        $states = State::all();
+
+        return view('admin.packages.hotels.edit')
+                ->withHotel($hotel)
+                ->withStates($states);
     }
 
     /**
@@ -77,7 +96,18 @@ class HotelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,array(
+            'name' => 'required|string',
+            ));
+
+        $hotel = $this->hotel->find($id);
+
+        $hotel->name = $request->name;
+        $hotel->state_id = $request->state_id;
+
+        $hotel->save();
+
+        return redirect()->route('admin.hotel.index');
     }
 
     /**
@@ -88,6 +118,9 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $hotel = $this->hotel->find($id);
+        $hotel->delete();
+
+        return redirect()->back();
     }
 }
