@@ -117,7 +117,7 @@ class HotelCostController extends Controller
 
         $cost->save();
 
-        return redirect()->back();
+        return redirect()->route('admin.hotelcost.index');
     }
 
     /**

@@ -63,15 +63,17 @@
 
             <table>
                 <tr>
-                    <th>sl.</th>
-                    <th>hotel Name</th>
-                    <th>cost</th>
-                    <th>action</th>
+                    <th> sl. </th>
+                    <th> hotel Name </th>
+                    <th> room type </th>
+                    <th> cost </th>
+                    <th> action </th>
                 </tr>
                 @foreach ($costs as $key => $cost)
                     <tr>
                         <td>{{ $key+1 }}</td>
                         <td>{{ \App\Models\Hotel\Hotel::find($cost->hotel_id)->name  }}</td>
+                        <td>{{ \App\Models\RoomCategory\RoomCategory::find($cost->room_cat_id)->name  }}</td>
                         <td>{{ $cost->cost  }}</td>
                         <td>
                             <a href="{{ route('admin.hotelcost.edit', ['id' => $cost->id]) }}">edit</a>
