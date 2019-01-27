@@ -1,6 +1,6 @@
 @extends('layouts.backend')
 
-@section('page_title', '| airs edit')
+@section('page_title', '| AIRS | Update')
 
 @section('stylesheet')
     {{--  External CSS  --}}
@@ -8,90 +8,67 @@
 @endsection
 
 @section('content')
-{{-- <div class="container-fluid">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 offset-2">
-            <div class="card">
-                <div class="card-header">
-                    generate airs
+        <div class="col-md-12">
+            <form action="" method="POST">
+            @csrf
+                <div class="card">
+                    <div class="card-header bg-light">
+                        <strong>Update Price</strong>
+        
+                        <div class="card-actions">
+                            <a onclick="history.back()" class="btn">
+                                <i class="fa fa-arrow-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="from">Journey From</label>
+                                    <select id="from" class="form-control">
+                                        <option value="Sylhet">Sylhet</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="to">Journey To</label>
+                                    <select id="to" class="form-control">
+                                        <option value="Sylhet">Sylhet</option>
+                                        <option value="Dhaka">Dhaka</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="tclass_id">Ticket Class</label>
+                                    <select id="tclass_id" class="form-control">
+                                        <option value="AC">AC</option>
+                                        <option value="Non-AC">Non-AC</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="price" class="form-control-label">Price <sup>( Per Person )</sup></label>
+                                    <input id="price" class="form-control" value="1200">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer bg-light">
+                        <button class="btn btn-outline-dark btn-sm float-right" type="submit">Update</button>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <form action="{{ route('admin.air.update', ['id' => $air->id]) }}" method="POST">
-                        @csrf
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">from</label>
-                            </div>
-                            <select class="custom-select" name="from" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                @foreach ($states as $state)
-                                <option value="{{ $state->id }}" @if($air->from == $state->id) selected @endif>{{ $state->name }}</option>                                      
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">to</label>
-                            </div>
-                            <select class="custom-select" name="to" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                @foreach ($states as $state)
-                                <option value="{{ $state->id }}" @if($air->to == $state->id) selected @endif>{{ $state->name }}</option>                                      
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="inputGroupSelect01">ticket type</label>
-                            </div>
-                            <select class="custom-select" name="tclass_id" id="inputGroupSelect01">
-                                <option selected>Choose...</option>
-                                @foreach ($ticketClasses as $ticketClass)
-                                <option value="{{ $ticketClass->id }}" @if($air->tclass_id == $ticketClass->id) selected @endif>{{ $ticketClass->name }}</option>                                      
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <input type="number" class="form-control" name="cost" placeholder="input cost" value="{{ $air->cost }}">
-                        </div>
-
-                        <button class="btn btn-info" type="submit">submit</button>
-                    </form>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
-</div> --}}
-{{-- <div class="row">
-        <div class="col-md-8 offset-2">
-
-            <table>
-                <tr>
-                    <th>sl.</th>
-                    <th>from</th>
-                    <th>to</th>
-                    <th>ticket Class</th>
-                    <th>cost</th>
-                    <th>action</th>
-                </tr>
-                @foreach ($airs as $key => $air)
-                    <tr>
-                        <td>{{ $key+1 }}</td>
-                        <td>{{ \App\Models\State\State::find($air->from)->name  }}</td>
-                        <td>{{ \App\Models\State\State::find($air->to)->name  }}</td>
-                        <td>{{ \App\Models\TicketClass\TicketClass::find($air->tclass_id)->name }}</td>
-                        <td>{{ $air->cost}}</td>
-                        <td>
-                            <a href="{{ route('admin.air.edit', ['id' => $air->id]) }}">edit</a>
-                            <a href="{{ route('admin.air.destroy', ['id' => $air->id]) }}">delete</a>
-                        </td>
-                    </tr>
-                @endforeach
-            </table>
-        </div>
-    </div> --}}
+</div>
 @endsection
 
 @section('scripts')

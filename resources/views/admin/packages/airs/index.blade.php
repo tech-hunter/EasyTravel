@@ -1,17 +1,22 @@
 @extends('layouts.backend')
 
-@section('page_title', '| airs')
+@section('page_title', '| AIRS')
 
 @section('stylesheet')
     {{--  External CSS  --}}
     <style>
+        td{
+            padding-bottom: 5px !important;
+            padding-top: 10px !important;
+        }
         .priceValue{
             max-width: 30px;
-            padding-top: 5px;
+            padding-top: 5px !important;
             padding-bottom: 2px;
         }
         .action{
-            max-width: 35px;
+            padding-top: 5px !important;
+            max-width: 35px !important;
         }
         .priceValue input{
             border-color: #ffffff;
@@ -31,9 +36,9 @@
                     <strong>Air Ticket Prices Per Person</strong>
     
                     <div class="card-actions">
-                        <a href="#" class="btn">
+                        {{-- <a href="#" class="btn">
                             <i class="fa fa-pencil-alt"></i>
-                        </a>
+                        </a> --}}
     
                         <a href="{{Route('admin.air.create')}}" class="btn">
                             <i class="fa fa-plus"></i>
@@ -66,7 +71,7 @@
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
                     
-                                        <a href="#" class="btn">
+                                        <a href="#" onclick="return confirm('Delete! Are you sure?')" class="btn">
                                             <i class="fa fa-trash"></i>
                                         </a>
                                     </td>
