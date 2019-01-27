@@ -34,12 +34,13 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="{{ Route('home') }}">Home</a></li>
                     <li><a href="{{ Route('about') }}">About</a></li>
-                    <li class="dropdown"><a href="">Offers <i class="fa fa-angle-down"></i></a>
+                    <li><a href="#">Offers</a></li>
+                    {{-- <li class="dropdown"><a href="">Offers <i class="fa fa-angle-down"></i></a>
                         <ul role="menu" class="sub-menu">
                             <li><a href="{{ Route('tour') }}">Tour</a></li>
                             <li><a href="{{ Route('treatment') }}">Treatment</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li><a href="{{ Route('news') }}">News</a></li>                    
                     <li><a href="{{ Route('contact') }}">Contact</a></li>
                     @if(Auth::check())                   

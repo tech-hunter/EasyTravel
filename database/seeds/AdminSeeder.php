@@ -30,7 +30,7 @@ class AdminSeeder extends Seeder
         }        
 
         // Room Categories Row insert
-        $arr = ['Single', 'Double', 'Family', 'Honeymoon'];
+        $arr = ['Single', 'Double', 'Family', 'Honeymoon', 'Multiple Room'];
         for($j=0; $j<sizeof($arr); $j++){
             \App\Models\RoomCategory\RoomCategory::create([
                 'name' => $arr[$j],
