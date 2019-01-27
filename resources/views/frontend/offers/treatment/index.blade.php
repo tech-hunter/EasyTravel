@@ -123,7 +123,7 @@
                                 <option selected>Choose...</option>
                                 <option value="cah">Apollo Hospitals, Chennai</option>
                                 <option value="cdkmh">Dr. Kamakshi Memorial Hospital, Chennai</option>
-                                <option value="cdmh">Dr. Mehta's Hospital, Chennai</option>
+                                <option value="cdmh">Dr. Mehtas Hospital, Chennai</option>
                                 <option value="cfmh">Fortis Malar Hospital, Chennai</option>
                                 <option value="chcc">HCG Cancer Centre, Chennai</option>
                                 <option value="cnioss">Nithra Institute of Sleep Sciences, Chennai</option>
@@ -275,6 +275,61 @@
             autoclose: true,
         }).on('changeDate', function (ev) {
             $(this).datepicker('hide');
+        });
+    </script>
+
+    <script>
+        var date = new Date();
+        document.getElementById("cu_date").innerHTML = date.toDateString();
+
+        $(function() {
+            $('.tourairticketdemo').hide();
+            $('#tourAirTicketNeed').change(function() {
+                $('.tourairticketdemo').hide();
+                $('#' + $(this).val()).show();
+            });
+
+            $('.tourtrainticketdemo').hide();
+            $('#tourTrainTicketNeed').change(function() {
+                $('.tourtrainticketdemo').hide();
+                $('#' + $(this).val()).show();
+            });
+
+            $('.tourhotelneeddemo').hide();
+            $('#tourHotelNeed').change(function() {
+                $('.tourhotelneeddemo').hide();
+                $('#' + $(this).val()).show();
+            });
+        });
+
+
+        $(function() {
+            $('.treatmentairticketdemo').hide();
+            $('#treatmentAirTicketNeed').change(function() {
+                $('.treatmentairticketdemo').hide();
+                $('#' + $(this).val()).show();
+            });
+
+            $('.treatmenttrainticketdemo').hide();
+            $('#treatmentTrainTicketNeed').change(function() {
+                $('.treatmenttrainticketdemo').hide();
+                $('#' + $(this).val()).show();
+            });
+
+            $('.treatmenthotelneeddemo').hide();
+            $('#treatmentHotelNeed').change(function() {
+                $('.treatmenthotelneeddemo').hide();
+                $('#' + $(this).val()).show();
+            });
+        });
+
+        // Hospitals option
+        $(function() {
+            $('.hospitals').hide();
+            $('#treatmentWhichPlace').change(function(){
+            $('.hospitals').hide();
+            $('#' + $(this).val()).show();
+            });
         });
     </script>
 @endsection

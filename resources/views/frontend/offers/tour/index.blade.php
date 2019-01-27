@@ -64,7 +64,17 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="blood_group">Blood Group</label>
-                            <input type="text" name="blood_group" class="form-control" id="blood_group" placeholder="Blood Group" required>
+                            <select class="form-control" name="blood_group" id="blood_group">
+                                <option selected>Select Blood Group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -93,28 +103,46 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="at_number">Air Ticket No.</label>
-                            <input type="text" name="at_number" class="form-control" id="at_number" placeholder="Air Ticket No." required>
+                    <div class="col-md-12">
+                        <div class="form-group" >
+                            <label for="transportation">Transportation Type</label>
+                            <select class="form-control" name="transportation" id="transportation">
+                                <option selected>Select Transport</option>
+                                <option value="Air">Air</option>
+                                <option value="Train">Train</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="at_number">Total Air Ticket</label>
+                            <input type="number" name="at_number" class="form-control" id="at_number" placeholder="Total Air Ticket" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="at_class">Air Ticket Class</label>
-                            <input type="text" name="at_class" class="form-control" id="at_class" placeholder="Air Ticket Class" required>
+                            <select class="form-control" name="at_class" id="at_class">
+                                <option selected>Select Class</option>
+                                <option value="AC">AC</option>
+                                <option value="Non-AC">Non-AC</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="tt_number">Train Ticket No.</label>
-                            <input type="text" name="tt_number" class="form-control" id="tt_number" placeholder="Train Ticket No." required>
+                            <label for="tt_number">Total Train Ticket</label>
+                            <input type="number" name="tt_number" class="form-control" id="tt_number" placeholder="Total Train Ticket" required>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="tt_class">Train Ticket Class</label>
-                            <input type="text" name="tt_class" class="form-control" id="tt_class" placeholder="Train Ticket Class" required>
+                            <select class="form-control" name="tt_class" id="tt_class">
+                                <option selected>Select Class</option>
+                                <option value="AC">AC</option>
+                                <option value="Non-AC">Non-AC</option>
+                            </select>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -162,8 +190,8 @@
                         </div> 
                     </div>
                 </div>
-                <div class="tourbtnsubmit text-center">
-                    <button type="submit" class="btn btn-submit hvr-outline-out"><span>Submit</span></button>
+                <div class="col-md-12 text-right">
+                    <button type="submit" class="btn btn-submit hvr-outline-out"><strong>Submit</strong></button>
                 </div>
             </form>
         </div>
@@ -181,6 +209,61 @@
             autoclose: true,
         }).on('changeDate', function (ev) {
             $(this).datepicker('hide');
+        });
+    </script>
+
+    <script>
+        var date = new Date();
+        document.getElementById("cu_date").innerHTML = date.toDateString();
+
+        $(function() {
+            $('.tourairticketdemo').hide();
+            $('#tourAirTicketNeed').change(function() {
+                $('.tourairticketdemo').hide();
+                $('#' + $(this).val()).show();
+            });
+
+            $('.tourtrainticketdemo').hide();
+            $('#tourTrainTicketNeed').change(function() {
+                $('.tourtrainticketdemo').hide();
+                $('#' + $(this).val()).show();
+            });
+
+            $('.tourhotelneeddemo').hide();
+            $('#tourHotelNeed').change(function() {
+                $('.tourhotelneeddemo').hide();
+                $('#' + $(this).val()).show();
+            });
+        });
+
+
+        $(function() {
+            $('.treatmentairticketdemo').hide();
+            $('#treatmentAirTicketNeed').change(function() {
+                $('.treatmentairticketdemo').hide();
+                $('#' + $(this).val()).show();
+            });
+
+            $('.treatmenttrainticketdemo').hide();
+            $('#treatmentTrainTicketNeed').change(function() {
+                $('.treatmenttrainticketdemo').hide();
+                $('#' + $(this).val()).show();
+            });
+
+            $('.treatmenthotelneeddemo').hide();
+            $('#treatmentHotelNeed').change(function() {
+                $('.treatmenthotelneeddemo').hide();
+                $('#' + $(this).val()).show();
+            });
+        });
+
+        // Hospitals option
+        $(function() {
+            $('.hospitals').hide();
+            $('#treatmentWhichPlace').change(function(){
+            $('.hospitals').hide();
+            $('#' + $(this).val()).show();
+            });
         });
     </script>
 @endsection

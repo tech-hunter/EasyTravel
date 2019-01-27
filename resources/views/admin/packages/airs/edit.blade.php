@@ -8,7 +8,7 @@
 @endsection
 
 @section('content')
-<div class="container-fluid">
+{{-- <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 offset-2">
             <div class="card">
@@ -63,7 +63,35 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+{{-- <div class="row">
+        <div class="col-md-8 offset-2">
+
+            <table>
+                <tr>
+                    <th>sl.</th>
+                    <th>from</th>
+                    <th>to</th>
+                    <th>ticket Class</th>
+                    <th>cost</th>
+                    <th>action</th>
+                </tr>
+                @foreach ($airs as $key => $air)
+                    <tr>
+                        <td>{{ $key+1 }}</td>
+                        <td>{{ \App\Models\State\State::find($air->from)->name  }}</td>
+                        <td>{{ \App\Models\State\State::find($air->to)->name  }}</td>
+                        <td>{{ \App\Models\TicketClass\TicketClass::find($air->tclass_id)->name }}</td>
+                        <td>{{ $air->cost}}</td>
+                        <td>
+                            <a href="{{ route('admin.air.edit', ['id' => $air->id]) }}">edit</a>
+                            <a href="{{ route('admin.air.destroy', ['id' => $air->id]) }}">delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+    </div> --}}
 @endsection
 
 @section('scripts')

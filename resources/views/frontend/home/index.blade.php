@@ -15,7 +15,9 @@
                 <div class="slide-text">
                     <h1>Easy Travel</h1>
                     <p><span class="upper">W</span>e are boudin doner frankfurter pig. Cow shank bresaola pork loin tri-tip tongue venison pork belly meatloaf short loin landjaeger biltong beef ribs shankle chicken andouille.</p>
+                    @if( !Auth::check())
                     <a href="{{Route('login')}}" class="btn btn-common">SIGN IN</a>
+                @endif
                 </div>
                 <img src="{{ asset('frontend/images/home/slider/slide1/house.png') }}" class="img-responsive slider-house" alt="slider image">
                 <img src="{{ asset('frontend/images/home/slider/slide1/circle1.png') }}" class="slider-circle1" alt="slider image">

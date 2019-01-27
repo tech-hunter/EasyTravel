@@ -41,17 +41,21 @@
                         </ul>
                     </li>
                     <li><a href="{{ Route('news') }}">News</a></li>                    
-                    <li><a href="{{ Route('contact') }}">Contact</a></li>                    
-                    <li class="dropdown"><a href="">My Name<i class="fa fa-angle-down"></i></a>
+                    <li><a href="{{ Route('contact') }}">Contact</a></li>
+                    @if(Auth::check())                   
+                    <li class="dropdown"><a href=""> {{Auth::user()->name}} <i class="fa fa-angle-down"></i></a>
                         <ul role="menu" class="sub-menu">
-                            <li><a href="">My Name</a></li>
+                            <li><a href="#">Profile</a></li>
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                             
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
                         </ul>
-                    </li>                    
+                    </li>
+                    @else
+                    <li> <a href="{{ route('login') }}">Login</a></li>                   
+                    @endif
                 </ul>
             </div>
             {{-- <div class="search">
