@@ -13,7 +13,7 @@
         <div class="container">
             <div class="main-slider">
                 <div class="slide-text">
-                    <h1>TravelNak</h1>
+                    <h1>Easy Travel</h1>
                     <p><span class="upper">W</span>e are boudin doner frankfurter pig. Cow shank bresaola pork loin tri-tip tongue venison pork belly meatloaf short loin landjaeger biltong beef ribs shankle chicken andouille.</p>
                     @if( !Auth::check())
                     <a href="{{Route('login')}}" class="btn btn-common">LOG IN</a>

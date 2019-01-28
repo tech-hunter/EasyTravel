@@ -70,9 +70,10 @@
   }
   /* -------------------------btn---------------------- */
 
-.login-logo img{
-    width: 150px;
+  .login-logo img {
+    width: 215px;
     margin-bottom: 20px;
+    margin-top: 10px;
 }
 
 .card-footer{
