@@ -215,7 +215,7 @@
                     <div class="col-md-12">
                         <div class="form-group" >
                             <label for="tourAirTicketNeed">Do you need Air ticket?</label>
-                            <select class="form-control" name="tourairticketneed" id="tourAirTicketNeed" required>
+                            <select class="form-control" name="tourairticketneed" id="tourAirTicketNeed">
                                 <option selected></option>
                                 <option value="tourAirTicketYes">Yes</option>
                                 <option value="tourAirTicketNo">No</option>
@@ -248,7 +248,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="at_number">Total Air Ticket</label>
-                                <input type="number" name="at_number" class="form-control" id="at_number" placeholder="Total Air Ticket" required>
+                                <input type="number" name="at_number" class="form-control" id="at_number" placeholder="Total Air Ticket">
                             </div>
                         </div>
                         <div class="col-md-3">
