@@ -15,7 +15,7 @@
             @csrf
                 <div class="card">
                     <div class="card-header bg-light">
-                        <strong>Update Price</strong>
+                        <h4><strong>Update Price</strong></h4>
         
                         <div class="card-actions">
                             <a onclick="history.back()" class="btn">

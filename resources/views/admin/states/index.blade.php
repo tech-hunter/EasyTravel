@@ -49,14 +49,15 @@
                     </div>
                 </div>
     
-                <div class="card-body">
+                <div class="card-body text-center">
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>State Name</th>
-                                    <th class="action">Action</th>
+                                    <th class="action">Edit</th>
+                                    <th class="action">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,7 +69,8 @@
                                             <a href="{{ Route( 'admin.state.edit',['id'=>$state->id] ) }}" class="btn">
                                                 <i class="fa fa-pencil-alt"></i>
                                             </a>
-                        
+                                        </td>
+                                        <td>
                                             <a href="{{ Route( 'admin.state.destroy',['id'=>$state->id] ) }}" onclick="return confirm('Delete! Are you sure?')" class="btn">
                                                 <i class="fa fa-trash"></i>
                                             </a>

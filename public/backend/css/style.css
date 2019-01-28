@@ -1,3 +1,47 @@
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .card-header{
+      color: #000;
+  }
+
+  /* form-control */
+  .card .input-group-text {
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 20px;
+}
+
+  .card .form-control{
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 20px;
+  }
+  .card .custom-select {
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 20px;
+}
+  /* form-control */
+
 .btn{
     width: auto;
   }
@@ -83,3 +127,10 @@
 }
 
 /* -------------------------------- login card ------------------------------------- */ 
+
+/* -------------------------------- top nav logo ------------------------------------- */ 
+.navbar-brand img{
+    width: 138px;
+}
+/* -------------------------------- top nav logo ------------------------------------- */ 
+

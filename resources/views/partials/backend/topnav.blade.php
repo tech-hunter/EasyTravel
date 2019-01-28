@@ -4,8 +4,8 @@
     </a>
 
     <a class="navbar-brand" href="#">
-        {{--  <img src="{{ asset('frontend/images/logo.png') }}" alt="logo">  --}}
-        <h3 style="margin-bottom: 0px; font-weight: 500;">Easy Travel</h3>
+        <img src="{{ asset('frontend/images/logo.png') }}" alt="logo">
+        {{-- <h3 style="margin-bottom: 0px; font-weight: 500;">TravelNak</h3> --}}
     </a>
 
     <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
