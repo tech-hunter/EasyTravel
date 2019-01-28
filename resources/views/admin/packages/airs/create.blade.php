@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="card-footer bg-light">
-                        <button class="btn btn-outline-dark btn-sm float-right" type="submit">Add To List</button>
+                        <button class="btn btn-default" type="submit">Add To List</button>
                     </div>
                 </div>
             </form>

@@ -42,6 +42,7 @@
 }
   /* form-control */
 
+  /* ---------------------btn------------------------ */
 .btn{
     width: auto;
   }
@@ -62,6 +63,12 @@
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
+
+  .card-footer .btn{
+      background: #000;
+      color: #fff;
+  }
+  /* -------------------------btn---------------------- */
 
 .login-logo img{
     width: 150px;
@@ -91,6 +98,7 @@
 .login-card .card .card-header{
     background: transparent;
     border-bottom: 1px solid #fff;
+    color: #fff;
 }
 
 .login-card .card .card-footer{

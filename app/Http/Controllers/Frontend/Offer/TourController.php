@@ -9,6 +9,9 @@ use App\Models\State\State;
 use App\Models\TicketClass\TicketClass;
 use App\Models\RoomCategory\RoomCategory;
 use App\Models\Hotel\Hotel;
+use App\Models\HotelCost\HotelCost;
+use App\Models\Air\Air;
+use App\Models\Train\Train;
 
 class TourController extends Controller
 {
@@ -93,5 +96,26 @@ class TourController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function airSelection($from, $to){
+        $ticketClasses = Air::with(['roomcategory'])->where('from', $from)->where('to', $to)->get();
+
+        return response()->json($ticketClasses);
+    }
+
+    public function trainSelection($from, $to){
+        $ticketClasses = Train::where('from', $from)->where('to', $to)->get();
+
+        return response()->json($ticketClasses);
+    }
+    public function hotelSelection($id){
+        $data = HotelCost::where('room_cat_id', $id)->get();
+
+        return response()->json($data);
+    }
+    public function gethotel($id){
+        $data = Hotel::find($id);
+        return response()->json($data);
     }
 }

@@ -11,6 +11,6 @@ class Air extends Model
     }
 
     public function roomcategory(){
-        return $this->belongsTo('App\Models\RoomCategory\RoomCategory', 'id', 'tclass_id');
+        return $this->belongsTo('App\Models\RoomCategory\RoomCategory');
     }
 }

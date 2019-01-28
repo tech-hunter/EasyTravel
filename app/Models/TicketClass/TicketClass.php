@@ -19,7 +19,7 @@ class TicketClass extends Model
 
     public function airs()
     {
-        return $this->hasMany('App\Models\Air\Air', 'id', 'tclass_id');
+        return $this->hasMany('App\Models\Air\Air');
     }
 
     public function trains()

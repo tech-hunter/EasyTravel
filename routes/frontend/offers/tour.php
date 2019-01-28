@@ -17,4 +17,9 @@ Route::group([
     Route::post('/update/{id}', ['uses' => 'TourController@update', 'as' => 'tour.update']);
 
     Route::get('/destroy/{id}', ['uses' => 'TourController@destroy', 'as' => 'tour.destroy']);
+
+    Route::get('/airselection/{from}/{to}', ['uses' => 'TourController@airSelection', 'as' => 'tour.ticketselection']);
+    Route::get('/trainselection/{from}/{to}', ['uses' => 'TourController@trainSelection', 'as' => 'tour.ticketselection']);
+    Route::get('/hotels/{id}/', ['uses' => 'TourController@hotelSelection', 'as' => 'tour.hotels']);
+    Route::get('/gethotel/{id}/', ['uses' => 'TourController@gethotel', 'as' => 'tour.gethotel']);
 });

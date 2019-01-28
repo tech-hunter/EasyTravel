@@ -90,7 +90,7 @@
                             <select class="form-control" name="from" id="from">
                                 <option selected>Select</option>
                                 @foreach($states as $state)
-                                <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    <option id="t_from" value="{{ $state->id }}">{{ $state->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -101,7 +101,7 @@
                             <select class="form-control" name="to" id="to">
                                 <option selected>Select</option>
                                 @foreach($states as $state)
-                                <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                    <option id="t_to" value="{{ $state->id }}">{{ $state->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -127,9 +127,6 @@
                             <label for="at_class">Air Ticket Class</label>
                             <select class="form-control" name="at_class" id="at_class">
                                 <option selected>Select Class</option>
-                                @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -144,9 +141,6 @@
                             <label for="tt_class">Train Ticket Class</label>
                             <select class="form-control" name="tt_class" id="tt_class">
                                 <option selected>Select Class</option>
-                                @foreach($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -166,8 +160,6 @@
                             <label for="hotel_id">Hotel Name</label>
                             <select class="form-control" name="hotel_id" id="hotel_id">
                                 <option selected>Select Room</option>
-                                <option value="Rose View">Rose View</option>
-                                <option value="City Hotel">City Hotel</option>
                             </select>
                         </div>
                     </div>
@@ -197,7 +189,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-right">
-                    <button type="submit" class="btn btn-submit hvr-outline-out"><strong>Submit</strong></button>
+                    <button type="submit" class="btn btn-submit hvr-outline-out" id="submit"><strong>Submit</strong></button>
                 </div>
             </form>
         </div>
@@ -271,5 +263,109 @@
             $('#' + $(this).val()).show();
             });
         });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#to").change(function() {
+                var from = $("#from").val();
+                var to = $("#to").val();
+                var op = "";
+
+                $.ajax({
+                    type:"GET",
+                    url:'{!! URL::to('offers/tour/airselection') !!}'+"/"+from+"/"+to,
+                    data:{
+                        'from':from,
+                        'to': to,
+                        },
+                    dataType:"JSON",
+                    success:function(data){
+                        var array = ['Business', 'Normal', 'AC', 'Non-AC', 'Standing'];
+                        for(var i=0; i< data.length; i++){
+                            
+                            op+='<option value="'+data[i].tclass_id+'">'+array[data[i].tclass_id-1]+'</option>';
+                        } 
+                        
+                        $('#at_class').append(op);
+                    },
+                    error:function(){
+                        alert('Data Not Found');
+                    }
+                });
+
+                $.ajax({
+                    type:"GET",
+                    url:'{!! URL::to('offers/tour/trainselection') !!}'+"/"+from+"/"+to,
+                    data:{
+                        'from':from,
+                        'to': to,
+                        },
+                    dataType:"JSON",
+                    success:function(data){
+                        var array = ['Business', 'Normal', 'AC', 'Non-AC', 'Standing'];
+                        for(var i=0; i< data.length; i++){
+                            
+                            op+='<option value="'+data[i].tclass_id+'">'+array[data[i].tclass_id-1]+'</option>';
+                        } 
+                        
+                        $('#tt_class').append(op);
+                    },
+                    error:function(){
+                        alert('Data Not Found');
+                    }
+                });
+            });
+
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+$("#roomtype").change(function() {
+    var id = $("#roomtype").val();
+    var op = "";
+
+    $.ajax({
+        type:"GET",
+        url:'{!! URL::to('offers/tour/hotels') !!}'+"/"+id,
+        data:{
+            'id':id
+            },
+        dataType:"JSON",
+        success:function(data){
+            
+            for(var i=0; i< data.length; i++){
+                var id = data[i].hotel_id;
+                $.ajax({
+                    type:"GET",
+                    url:'{!! URL::to('offers/tour/gethotel') !!}'+"/"+id,
+                    data:{
+                        'id':id
+                        },
+                    dataType:"JSON",
+                    success:function(data){
+                        op+='<option value="'+data.id+'">'+data.name+'</option>';
+                        $('#hotel_id').append(op);
+                        
+                    },
+                    error:function(){
+                        alert('Data Not Found');
+                    }
+                });
+            }
+            
+        },
+        error:function(){
+            alert('Data Not Found');
+        }
+    });
+
+});
+
+});
     </script>
 @endsection
