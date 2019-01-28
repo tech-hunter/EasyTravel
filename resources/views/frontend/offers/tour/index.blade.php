@@ -428,47 +428,47 @@
     <script>
         $(document).ready(function(){
 
-$("#roomtype").change(function() {
-    var id = $("#roomtype").val();
-    var op = "";
+            $("#roomtype").change(function() {
+                var id = $("#roomtype").val();
+                var op = "";
 
-    $.ajax({
-        type:"GET",
-        url:'{!! URL::to('offers/tour/hotels') !!}'+"/"+id,
-        data:{
-            'id':id
-            },
-        dataType:"JSON",
-        success:function(data){
-            
-            for(var i=0; i< data.length; i++){
-                var id = data[i].hotel_id;
                 $.ajax({
                     type:"GET",
-                    url:'{!! URL::to('offers/tour/gethotel') !!}'+"/"+id,
+                    url:'{!! URL::to('offers/tour/hotels') !!}'+"/"+id,
                     data:{
                         'id':id
                         },
                     dataType:"JSON",
                     success:function(data){
-                        op+='<option value="'+data.id+'">'+data.name+'</option>';
-                        $('#hotel_id').append(op);
+                        
+                        for(var i=0; i< data.length; i++){
+                            var id = data[i].hotel_id;
+                            $.ajax({
+                                type:"GET",
+                                url:'{!! URL::to('offers/tour/gethotel') !!}'+"/"+id,
+                                data:{
+                                    'id':id
+                                    },
+                                dataType:"JSON",
+                                success:function(data){
+                                    op+='<option value="'+data.id+'">'+data.name+'</option>';
+                                    $('#hotel_id').append(op);
+                                    
+                                },
+                                error:function(){
+                                    alert('Data Not Found');
+                                }
+                            });
+                        }
                         
                     },
                     error:function(){
                         alert('Data Not Found');
                     }
                 });
-            }
-            
-        },
-        error:function(){
-            alert('Data Not Found');
-        }
-    });
 
-});
+            });
 
-});
+            });
     </script>
 @endsection

@@ -436,4 +436,108 @@
             });
         });
     </script>
+
+<script>
+    $(document).ready(function(){
+
+        $("#to").change(function() {
+            var from = $("#from").val();
+            var to = $("#to").val();
+            var op = "";
+
+            $.ajax({
+                type:"GET",
+                url:'{!! URL::to('offers/tour/airselection') !!}'+"/"+from+"/"+to,
+                data:{
+                    'from':from,
+                    'to': to,
+                    },
+                dataType:"JSON",
+                success:function(data){
+                    var array = ['Business', 'Normal', 'AC', 'Non-AC', 'Standing'];
+                    for(var i=0; i< data.length; i++){
+                        
+                        op+='<option value="'+data[i].tclass_id+'">'+array[data[i].tclass_id-1]+'</option>';
+                    } 
+                    
+                    $('#at_class').append(op);
+                },
+                error:function(){
+                    alert('Data Not Found');
+                }
+            });
+
+            $.ajax({
+                type:"GET",
+                url:'{!! URL::to('offers/tour/trainselection') !!}'+"/"+from+"/"+to,
+                data:{
+                    'from':from,
+                    'to': to,
+                    },
+                dataType:"JSON",
+                success:function(data){
+                    var array = ['Business', 'Normal', 'AC', 'Non-AC', 'Standing'];
+                    for(var i=0; i< data.length; i++){
+                        
+                        op+='<option value="'+data[i].tclass_id+'">'+array[data[i].tclass_id-1]+'</option>';
+                    } 
+                    
+                    $('#tt_class').append(op);
+                },
+                error:function(){
+                    alert('Data Not Found');
+                }
+            });
+        });
+
+    });
+
+</script>
+
+<script>
+    $(document).ready(function(){
+
+        $("#roomtype").change(function() {
+            var id = $("#roomtype").val();
+            var op = "";
+
+            $.ajax({
+                type:"GET",
+                url:'{!! URL::to('offers/treatment/hotels') !!}'+"/"+id,
+                data:{
+                    'id':id
+                    },
+                dataType:"JSON",
+                success:function(data){
+                    
+                    for(var i=0; i< data.length; i++){
+                        var id = data[i].hotel_id;
+                        $.ajax({
+                            type:"GET",
+                            url:'{!! URL::to('offers/treatment/gethotel') !!}'+"/"+id,
+                            data:{
+                                'id':id
+                                },
+                            dataType:"JSON",
+                            success:function(data){
+                                op+='<option value="'+data.id+'">'+data.name+'</option>';
+                                $('#hotel_id').append(op);
+                                
+                            },
+                            error:function(){
+                                alert('Data Not Found');
+                            }
+                        });
+                    }
+                    
+                },
+                error:function(){
+                    alert('Data Not Found');
+                }
+            });
+
+        });
+
+        });
+</script>
 @endsection
