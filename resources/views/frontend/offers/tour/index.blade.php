@@ -29,7 +29,8 @@
     {{-- Tour Registration Page --}}
     <section class="tour-register">
         <div class="container">
-            <form action="" method="POST">
+            <form action="{{ route('tour.store') }}" method="POST">
+            @csrf
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
@@ -40,7 +41,7 @@
                     <div class="col-md-4">
                         <div class="form-group date" data-provide="datepicker">
                             <label for="tourBirthDay">Birthday</label>
-                            <input id="tourBirthDay" name="tourBirthDay" type="text" class="datepicker form-control clickable input-md" placeholder="Check-In">
+                            <input id="tourBirthDay" name="birthday" type="text" class="datepicker form-control clickable input-md" placeholder="Check-In">
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -88,8 +89,9 @@
                             <label for="from">Travel From</label>
                             <select class="form-control" name="from" id="from">
                                 <option selected>Select</option>
-                                <option value="Dhaka">Dhaka</option>
-                                <option value="Sylhet">Sylhet</option>
+                                @foreach($states as $state)
+                                <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -98,8 +100,9 @@
                             <label for="to">Travel To</label>
                             <select class="form-control" name="to" id="to">
                                 <option selected>Select</option>
-                                <option value="Dhaka">Dhaka</option>
-                                <option value="Sylhet">Sylhet</option>
+                                @foreach($states as $state)
+                                <option value="{{ $state->id }}">{{ $state->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -124,8 +127,9 @@
                             <label for="at_class">Air Ticket Class</label>
                             <select class="form-control" name="at_class" id="at_class">
                                 <option selected>Select Class</option>
-                                <option value="AC">AC</option>
-                                <option value="Non-AC">Non-AC</option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -140,8 +144,9 @@
                             <label for="tt_class">Train Ticket Class</label>
                             <select class="form-control" name="tt_class" id="tt_class">
                                 <option selected>Select Class</option>
-                                <option value="AC">AC</option>
-                                <option value="Non-AC">Non-AC</option>
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -150,8 +155,9 @@
                             <label for="roomtype">Room Type</label>
                             <select class="form-control" name="roomtype" id="roomtype">
                                 <option selected>Select Room</option>
-                                <option value="Single">Single</option>
-                                <option value="Double">Double</option>
+                                @foreach($rooms as $room)
+                                <option value="{{ $room->id }}">{{ $room->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

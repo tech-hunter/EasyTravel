@@ -20,7 +20,13 @@ class TourController extends Controller
     public function index()
     {
         $states = State::all();
-        return view('frontend.offers.tour.index');
+        $Categories = TicketClass::all();
+        $rooms = RoomCategory::all();
+
+        return view('frontend.offers.tour.index')
+            ->withStates($states)
+            ->withCategories($Categories)
+            ->withRooms($rooms);
     }
 
     /**
