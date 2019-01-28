@@ -13,7 +13,7 @@
         <div class="container">
             <div class="main-slider">
                 <div class="slide-text">
-                    <h1>Easy Travel</h1>
+                    <h1>TravelNak</h1>
                     <p><span class="upper">W</span>e are boudin doner frankfurter pig. Cow shank bresaola pork loin tri-tip tongue venison pork belly meatloaf short loin landjaeger biltong beef ribs shankle chicken andouille.</p>
                     @if( !Auth::check())
                     <a href="{{Route('login')}}" class="btn btn-common">LOG IN</a>
@@ -59,7 +59,7 @@
                         <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
                             <img src="{{ asset('frontend/images/flaticon/globe.png') }}" alt="">
                         </div>
-                        <h2>Easy Travel</h2>
+                        <h2>TravelNak</h2>
                         <p>Venison tongue, salami corned beef ball tip meatloaf bacon. Fatback pork belly bresaola tenderloin bone pork kevin shankle.</p>
                     </div>
                 </div>
