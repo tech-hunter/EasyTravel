@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('page_title', '| HOME')
+@section('page_title', '| TREATMENT')
 
 @section('stylesheet')
     {{--  External CSS  --}}
@@ -61,7 +61,7 @@
                             <input type="text" name="passport_number" class="form-control" id="passport_number" placeholder="Passport No." required>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group">
                             {{-- <label for="blood_group">Blood Group</label>
                             <input type="text" name="blood_group" class="form-control" id="blood_group" placeholder="Blood Group" required> --}}
@@ -79,13 +79,13 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="traveler_number">Total Traveler</label>
                             <input type="text" name="traveler_number" class="form-control" id="traveler_number" placeholder="Total Traveler" required>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    {{-- <div class="col-md-3">
                         <div class="form-group" >
                             <label for="from">Travel From</label>
                             <select class="form-control" name="from" id="from">
@@ -104,7 +104,7 @@
                                 <option value="Sylhet">Sylhet</option>
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="treatmentWhichPlace">Which Place?</label>
@@ -187,7 +187,7 @@
                                 </select>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    {{-- <div class="col-md-3">
                         <div class="form-group">
                             <label for="at_number">Air Ticket No.</label>
                             <input type="text" name="at_number" class="form-control" id="at_number" placeholder="Air Ticket No." required>
@@ -198,7 +198,7 @@
                             <label for="at_class">Air Ticket Class</label>
                             <input type="text" name="at_class" class="form-control" id="at_class" placeholder="Air Ticket Class" required>
                         </div>
-                    </div>
+                    </div> 
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="tt_number">Train Ticket No.</label>
@@ -210,7 +210,111 @@
                             <label for="tt_class">Train Ticket Class</label>
                             <input type="text" name="tt_class" class="form-control" id="tt_class" placeholder="Train Ticket Class" required>
                         </div>
+                    </div> --}}
+
+                    <div class="col-md-12">
+                        <div class="form-group" >
+                            <label for="tourAirTicketNeed">Do you need Air ticket?</label>
+                            <select class="form-control" name="tourairticketneed" id="tourAirTicketNeed" required>
+                                <option selected></option>
+                                <option value="tourAirTicketYes">Yes</option>
+                                <option value="tourAirTicketNo">No</option>
+                            </select>
+                        </div>
                     </div>
+                    <div id="tourAirTicketYes" class="tourairticketdemo" style="display:none">
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                                <label for="from">Travel From</label>
+                                <select class="form-control" name="from" id="from">
+                                    <option selected>Select</option>
+                                    {{-- @foreach($states as $state)
+                                        <option id="t_from" value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endforeach --}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                                <label for="to">Travel To</label>
+                                <select class="form-control" name="to" id="to">
+                                    <option selected>Select</option>
+                                    {{-- @foreach($states as $state)
+                                        <option id="t_to" value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endforeach --}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="at_number">Total Air Ticket</label>
+                                <input type="number" name="at_number" class="form-control" id="at_number" placeholder="Total Air Ticket" required>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="at_class">Air Ticket Class</label>
+                                <select class="form-control" name="at_class" id="at_class">
+                                    <option selected>Select Class</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tourAirTicketNo" class="tourairticketdemo" style="display:none">
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group" >
+                            <label for="tourTrainTicketNeed">Do you need Train ticket?</label>
+                            <select class="form-control" name="tourtrainticketneed" id="tourTrainTicketNeed">
+                                <option selected></option>
+                                <option value="tourTrainTicketYes">Yes</option>
+                                <option value="tourTrainTicketNo">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="tourTrainTicketYes" class="tourtrainticketdemo" style="display:none">
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                                <label for="from">Travel From</label>
+                                <select class="form-control" name="from" id="from">
+                                    <option selected>Select</option>
+                                    {{-- @foreach($states as $state)
+                                        <option id="t_from" value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endforeach --}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                                <label for="to">Travel To</label>
+                                <select class="form-control" name="to" id="to">
+                                    <option selected>Select</option>
+                                    {{-- @foreach($states as $state)
+                                        <option id="t_to" value="{{ $state->id }}">{{ $state->name }}</option>
+                                    @endforeach --}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="tt_number">Total Train Ticket</label>
+                                <input type="number" name="tt_number" class="form-control" id="tt_number" placeholder="Total Train Ticket" required>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="tt_class">Train Ticket Class</label>
+                                <select class="form-control" name="tt_class" id="tt_class">
+                                    <option selected>Select Class</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tourTrainTicketNo" class="tourtrainticketdemo" style="display:none">
+                    </div>
+
+                    
                     <div class="col-md-4">
                         <div class="form-group" >
                             <label for="roomtype">Room Type</label>
