@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('page_title', '| HOME')
+@section('page_title', '| ABOUT')
 
 @section('stylesheet')
     {{--  External CSS  --}}
